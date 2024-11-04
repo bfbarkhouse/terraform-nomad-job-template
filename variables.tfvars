@@ -1,4 +1,6 @@
 
+artifactory_repo            = "repo-key"
+nomad_template_path         = "path/to/the/template.tpl"
 datacenters                 = "global"
 job_prefix                  = "hello-world"
 group_count                 = 1
