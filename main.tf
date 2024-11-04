@@ -60,16 +60,16 @@ variable "consul_service_name" {
 }
 
 data "artifactory_file" "artfiactory_job_template" {
-   repository   = var.artifactory_repo
-   path         = var.nomad_template_path
-   output_path  = "${path.module}/job-spec-template.tpl"
+  repository  = var.artifactory_repo
+  path        = var.nomad_template_path
+  output_path = "${path.module}/job-spec-template.tpl"
 }
 
 resource "nomad_job" "java_app" {
   jobspec = templatefile("${path.module}/job-spec-template.tpl", {
     datacenters = var.datacenters, job_prefix = var.job_prefix, group_count = var.group_count,
     artifact_source = var.artifact_source, workload_config_file_source = var.workload_config_file_source,
-    jar_path = var.jar_path, jvm_options = var.jvm_options, cpu = var.cpu, memory = var.memory, 
+    jar_path = var.jar_path, jvm_options = var.jvm_options, cpu = var.cpu, memory = var.memory,
     consul_service_name = var.consul_service_name
   })
 }
