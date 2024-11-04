@@ -65,7 +65,7 @@ data "artifactory_file" "artfiactory_job_template" {
    output_path  = "${path.module}/job-spec-template.tpl"
 }
 
-resource "nomad_job" "middleware" {
+resource "nomad_job" "java_app" {
   jobspec = templatefile("${path.module}/job-spec-template.tpl", {
     datacenters = var.datacenters, job_prefix = var.job_prefix, group_count = var.group_count,
     artifact_source = var.artifact_source, workload_config_file_source = var.workload_config_file_source,
