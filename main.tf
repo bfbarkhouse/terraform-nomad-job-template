@@ -16,6 +16,12 @@ provider "nomad" {
   #export NOMAD_ADDR = ""
   #export NOMAD_TOKEN = ""
 }
+
+provider "artifactory" {
+  #export ARTIFACTORY_URL
+  #export ARTIFACTORY_ACCESS_TOKEN
+  
+}
 variable "artifactory_repo" {
   type = string
 }
